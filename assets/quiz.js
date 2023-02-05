@@ -1,3 +1,4 @@
+
 // DOM Reference variables
 var startBtnEl = document.querySelector('#startbtn');
 var timer = document.querySelector('#timer');
@@ -11,8 +12,8 @@ var quizStartEl = document.querySelector('#start-quiz');
 var timeLeft = 60;
 
 // Variable to keep track of the interval ID
-let intervalId;
-let currentQuestion = 0;
+var intervalId;
+var currentQuestion = 0;
 
 // Functions: methods/actions/handlers
 
@@ -30,7 +31,7 @@ startBtnEl.addEventListener('click', function() {
         }
     }, 1000);
     // display first question & hide the quiz start elements
-    document.quizStartEl.style.display = "block";
+    quizStartEl.style.display = "block";
     
     displayQuizStart();
 });
@@ -57,22 +58,17 @@ function displayQuestion() {
                 }
             } else {
                 // decrease the time here/error
+                timeLeft -= 5;
+                time.textContent = timeLeft;
             }
         });
         document.getElementById("choices").appendChild(btn);
     }
 }
 
-function onAnswerChoiceClick () {
-
-}
-
-function init() {
-//  show previous high score
-}
 
 function displayGameOver () {
-    let gameOverCard = document.querySelector("#gamover-card");
+    let gameOverCard = document.querySelector("#gameover-card");
     gameOverCard.classList.remove("hide");
 }
 
