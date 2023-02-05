@@ -1,26 +1,23 @@
 console.log("beepboop");
-const startBtn = document.querySelector('#startBtn');
-const timerDiv = document.querySelector('#timer');
-const timeSpan = document.querySelector('')
 const questionsDiv = document.querySelector('#questions');
 
 const timeSpan = document.querySelector('#')
 // array of questions
 const questions = [
  {
-  text: 'test question 1',
-  choices: ['answer1', 'answer2', 'answer3', 'answer4'],
-  answer: 'answer 1'
+  text: 'What does the abbreviation "DOM" stand for?',
+  choices: ['Document Object Model', 'Data Oriented Module', 'Data Oriented Model', 'Document Oriented Module'],
+  answer: 'Document Object Model'
  },
  {
-  text: 'test question 2',
-  choices: ['answer1', 'answer2', 'answer3', 'answer4'],
-  answer: 'answer 1'
+  text: 'What is a "Method" in JavaScript?',
+  choices: ['Methods are functions stored as object properties.', 'A JavaScript method is a property containing a function definition.', 'Methods are object properties.', 'A JavaScript method is a block of code written to perform some specific set of tasks.', 'A JavaScript method is a collection of properties with key values that can either be a "data" property or an "accessor" property.'],
+  answer: 'A JavaScript method is a property containing a function definition.'
  },
  {
-  text: 'test question 3',
-  choices: ['answer1', 'answer2', 'answer3', 'answer4'],
-  answer: 'answer 1'
+  text: 'What is an "object" in JavaScript?',
+  choices: ['a material item that can be seen and touched.', 'a type of data that can store and manipulate text', 'a data type that can take in a different types of data values.', 'a sequence of characters.'],
+  answer: 'a data type that can take in a different types of data values.'
  }
 ];
 
