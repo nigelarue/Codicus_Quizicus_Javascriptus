@@ -6,15 +6,32 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
- <title>Document</title>
+ <title>Codicus Quizicus</title>
 </head>
 <body>
- <h1>Coding Quiz</h1>
- <div id="timer">Time Left: <span id="time"></span></div>
- <div>
+ <h1>Codicus Quizicus JavaScripticus</h1>
+ <!-- quiz start button -->
+ <div id="start-quiz">
+  <h5 id="startbtn-title">Test your knowledge below, hero...</h5>  
   <button id="startbtn">Start!</button>
  </div>
- <div id="questions"></div>
+ <!-- timer -->
+ <div id="timer">Time Left: <span id="time"></span></div>
+ <div id="question-card" class="hide">
+    <div id="questions">
+        <h3 id="question-header"></h3>
+        <div id="choices" class="choices"></div>
+    </div>
+ </div>
+ <!-- quiz end card & initials input form -->
+ <div id="gameover-card" class="hide">
+    <h3 id="gameover-header">Game Over!!!</h3>
+    <form class="form-scores">
+        <label class="initials">Enter your initials:</label>
+        <input type="tex" maxlength="3"/>
+        <button id="submit-btn">Submit</button>
+    </form>
+ </div>
 
  <script src="./assets/script.js"></script>
 </body>
