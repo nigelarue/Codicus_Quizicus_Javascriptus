@@ -8,17 +8,17 @@ const timeSpan = document.querySelector('#')
 // array of questions
 const questions = [
  {
-  text: 'test question 1'
+  text: 'test question 1',
   choices: ['answer1', 'answer2', 'answer3', 'answer4'],
   answer: 'answer 1'
- }
+ },
  {
-  text: 'test question 2'
+  text: 'test question 2',
   choices: ['answer1', 'answer2', 'answer3', 'answer4'],
   answer: 'answer 1'
- }
+ },
  {
-  text: 'test question 3'
+  text: 'test question 3',
   choices: ['answer1', 'answer2', 'answer3', 'answer4'],
   answer: 'answer 1'
  }
@@ -87,3 +87,5 @@ const endQuiz = () => {
 
 startBtn.addEventListener('click', startQuiz);
 
+// use modules instead of prompts
+// go to new page for highscores
