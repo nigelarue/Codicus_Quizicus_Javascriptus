@@ -1,9 +1,9 @@
 :root {
-  --primary: #fff7ee;
-  --secondary: #9caea9;
-  --tertiary: #8f055f;
-  --light-dark: #b33c1b;
-  --dark: #fb792d;
+  --primary: #d1f897;
+  --secondary: #99ff00;
+  --tertiary: #7b9f45;
+  --light-dark: #588711;
+  --dark: #3b6004;
   --border-radius: 0.3rem;
 }
 
@@ -11,6 +11,7 @@ body {
   background-color: var(--primary);
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  align-content: center;
 }
 
 h1,
@@ -20,11 +21,25 @@ h5 {
   font-family: "Press Start 2P", cursive;
 }
 
-.btn {
-  font-size: 1.3rem;
+.main-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+  margin: 20px auto;
+  width: 50%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+button {
+  font-family: "Press Start 2p", cursive;
+  font-size: 1rem;
   text-decoration: none;
   padding: 6px 5px;
-  width: 100%;
+  width: 11%;
   display: block;
   margin: 5px 0;
   border-radius: var(--border-radius);
@@ -47,16 +62,19 @@ h5 {
   display: inline;
 }
 
+.start-quiz
+
 /* quiz card */
 .question-card {
-    border: 3px solid #9caea9;
-    border-radius: var(--border-radius);
+  border: 3px solid #9caea9;
+  border-radius: var(--border-radius);
 }
 /* quiz end card & form */
 .gameover-card {
-    margin: 20 20px;
-    border: 3px solid var(--dark);
-    border-radius: var(--border-radius);
+
+  margin: 20 20px;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
 }
 
 input {
