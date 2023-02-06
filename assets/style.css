@@ -12,36 +12,67 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   align-content: center;
+  display: flex;
+  flex-flow: column nowrap;  
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height:100%;
 }
 
 h1,
-h3,
 h5 {
+  display: block;
+  align-self: center;
   font-weight: 400;
   font-family: "Press Start 2P", cursive;
+  margin: 100 700 100px;
+  padding: 100 200 100px;
 }
 
-.main-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  
-  margin: 20px auto;
-  width: 50%;
+h3 {
+  align-self: center;
+  width: 750px;
+  font-size: 35px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 5 350 5px;
+  padding: 0;
 }
+
+form {
+  align-self: center;
+  margin: 0 800 0px;
+}
+
+/* .main-body {
+  min-height: 100vh;
+} */
 
 .hidden {
   visibility: hidden;
 }
 
+.startQuiz {
+  justify-content: center;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.time {
+  position: relative;
+  height: 900px;
+  width: 900px;
+}
+
 button {
-  font-family: "Press Start 2p", cursive;
-  font-size: 1rem;
+  align-self: center;
+  font-size: 1.3rem;
   text-decoration: none;
-  padding: 6px 5px;
-  width: 11%;
-  display: block;
-  margin: 5px 0;
+  width: fit-content;
+  padding: 10px 20px;
+  display:list-item;
+  margin: 5px 300px;
   border-radius: var(--border-radius);
   color: var(--primary);
   border: none;
@@ -62,25 +93,38 @@ button {
   display: inline;
 }
 
-.start-quiz
+.startbtn {
+  margin: 0 0 0 100px;
+}
+
+
 
 /* quiz card */
+
 .question-card {
   border: 3px solid #9caea9;
   border-radius: var(--border-radius);
+  width: 50%;
 }
-/* quiz end card & form */
-.gameover-card {
 
-  margin: 20 20px;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-}
+/* quiz end card & form */
 
 input {
-  width: 10%;
+  width: 20%;
   border: 1px solid #ccc;
   background: #fff;
   margin: 0 0 5px;
   padding: 10px;
 }
+
+.gameOverCard {
+  -ms-flex-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0 0 0 0;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+}
+
+

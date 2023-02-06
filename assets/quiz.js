@@ -1,6 +1,8 @@
 // DOM Reference variables
 var startBtnEl = document.querySelector("#startbtn");
-
+var questionCard = document.getElementById("question-card");
+var timer = document.getElementById("timer");
+var timerTitle = document.getElementById("timerTitle");
 // Global Variables for timer
 var timeLeft = 60;
 var intervalId;
@@ -22,7 +24,7 @@ startBtnEl.addEventListener("click", function () {
   }, 1000);
 
   // display first question & hide the quiz start elements
-  var quizStartEl = document.getElementById("start-quiz");
+  var quizStartEl = document.getElementById("startQuiz");
   if (quizStartEl) {
     quizStartEl.classList.add("hidden");
   }
@@ -34,12 +36,10 @@ startBtnEl.addEventListener("click", function () {
 var choicesEl = document.querySelector("#choices");
 
 function displayQuestion() {
-  var questionCard = document.getElementById("question-card");
+  
   questionCard.removeAttribute("class", "hidden");
-
-  var timer = document.getElementById("timer");
   timer.removeAttribute("class");
-
+  timerTitle.removeAttribute("class");
   let question = questions[currentQuestion];
   document.getElementById("question-header").innerHTML = question.text;
 
@@ -48,9 +48,8 @@ function displayQuestion() {
 
   for (let i = 0; i < choices.length; i++) {
 
-    var choice = choices[i];
-    var btn = document.createElement("button");
-    btn.classList.add("questionBtn");
+    let choice = choices[i];
+    let btn = document.createElement("button");
     btn.innerHTML = choice;
     btn.addEventListener("click", function () {
 
@@ -58,7 +57,7 @@ function displayQuestion() {
 
         currentQuestion++;
         if (currentQuestion === questions.length) {
-
+          
           displayGameOver();
         } else {
           displayQuestion();
@@ -90,36 +89,36 @@ const questions = [
     answer: "Document Object Model",
   },
   {
-    text: 'What is a "Method" in JavaScript?',
+    text: 'A JavaScript ____ is a property containing a function definition?',
     choices: [
-      "Methods are functions stored as object properties",
-      "A JavaScript method is a property containing a function definition",
-      "Methods are object properties",
-      "A JavaScript method is a block of code written to perform some specific set of tasks",
-      'A JavaScript method is a collection of properties with key values that can either be a "data" property or an "accessor" property',
+      "method",
+      "dictionary",
+      "string",
+      "trait",
+      "moment",
     ],
     answer:
-      "A JavaScript method is a property containing a function definition",
+      "method",
   },
   {
-    text: 'What is an "object" in JavaScript?',
+    text: 'What is a data type that can take in a different types of data values in JavaScript?',
     choices: [
-      "a material item that can be seen and touched",
-      "a type of data that can store and manipulate text",
-      "a data type that can take in a different types of data values",
-      "a sequence of characters",
+      "data",
+      "object",
+      "property",
+      "prop",
     ],
-    answer: "a data type that can take in a different types of data values",
+    answer: "object",
   },
   {
-    text: 'What is an "arity" in JavaScript?',
+    text: 'What is a property describing the number of arguments in a function ___ in JavaScript?',
     choices: [
-      "a script to shrink text to live inside larger objects",
-      "a type of data that will initialize a method",
-      "a property describing the number of arguments in a function",
-      "a function used to shrink an index",
+      "trait",
+      "prop",
+      "array",
+      "arity",
     ],
-    answer: "a property describing the number of arguments in a function",
+    answer: "arity",
   },
   {
     text: "In JavaScript, ____ function is not identified by a name.",
@@ -169,11 +168,23 @@ const questions = [
 ];
 
 // displays the gameover card and the 
-function displayGameOver() {
+var scoreCardEl = document.getElementById("scoreCard");
+var formScores = document.getElementById("submitBtn");
+var scoreStoreList = document.getElementById("scoreStoreList");
+var scoreList = document.getElementById("scoreList");
+var storedData = localStorage.getItem(saveInitials);
+var saveInitials = initials.value;
+var userScore = [timeLeft];
+var storedScores;
+var saveScore;
+var saveInitials;
 
+
+function displayGameOver() {
+  userScore = timeLeft;
   clearInterval(intervalId);
   var questionCard = document.getElementById("question-card");
-  var gameOverCard = document.getElementById("gameover-card");
+  var gameOverCard = document.getElementById("gameOverCard");
 
   if (gameOverCard) {
     gameOverCard.classList.remove("hidden");
@@ -182,53 +193,47 @@ function displayGameOver() {
   if (questionCard) {
     questionCard.classList.add("hidden");
   }
-
-  saveScores();
+  if (timerTitle) {
+    timerTitle.classList.add("hidden");
+  }
+  scoreCardEl.classList.remove("hidden");
+  formScores.addEventListener("submit", addScores);
+  displayScoreCardEl();
 }
 
 // storage & submit click event
-var scoreCardEl = document.getElementById("scoreCard");
-var saveScores = document.getElementById("saveScores");
-var submitBtnEl = document.getElementById("submitBtn");
-var saveScore;
-var saveInitials;
 
-function saveScores(event) {
-
+function addScores(event) {
   event.preventDefault();
-  var saveInitials = initials.value;
+  
+  document.getElementById("scoreStoreList").innerHTML = storedData;
   if(localStorage.hasOwnProperty("saveScores")){
-
     saveScores = JSON.parse(localStorage.getItem("saveScores"));
     saveScores.push({
       initials: saveInitials,
-      score: saveScore
+      score: userScore
     });
   } else {
 
     saveScores = [{
       initials: saveInitials,
-      score: saveScore
+      score: userScore
     }];
   }
-
+  console.log(saveScores);
   localStorage.setItem("saveScores", JSON.stringify(saveScores));
+  formScores.addEventListener("click", saveScores);
   displayScoreCardEl(); 
 }
 
 function displayScoreCardEl() {
-
   storedScores = JSON.parse(localStorage.getItem("saveScores"));
-  for(var i =0; i<storedScores.length; i++) {
-
+  for (var i = 0; i < storedScores.length; i++) {
     var newScore = document.createElement("li");
     newScore.textContent = storedScores[i].initials + " " + storedScores[i].score;
     scoreStoreList.appendChild(newScore);
   }
-
-  scoreCardEl.classList.remove("hidden");
 }
 
-submitBtnEl.addEventListener("submit", saveScores);
+localStorage.setItem(userScore, saveInitials);
 
-  
