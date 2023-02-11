@@ -7,37 +7,59 @@
   --border-radius: 0.3rem;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--primary);
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  align-content: center;
-  display: flex;
-  flex-flow: column nowrap;  
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  height:100%;
 }
 
-h1,
-h5 {
-  display: block;
-  align-self: center;
+h1 {
+  position: relative;
+  text-align: center;
+  width: 900px;
   font-weight: 400;
   font-family: "Press Start 2P", cursive;
-  margin: 100 700 100px;
-  padding: 100 200 100px;
+  justify-content: center;
+  margin: auto;
+  padding: 3rem 2.5rem;
 }
 
 h3 {
-  align-self: center;
   width: 750px;
   font-size: 35px;
   font-weight: 600;
   font-family: 'Courier New', Courier, monospace;
-  margin: 5 350 5px;
-  padding: 0;
+}
+
+h5 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  height: 400px;
+  justify-content: center;
+  margin: auto;
+  padding: .5rem 1.5rem;
+}
+
+.cardContainerQuestions {
+  margin: auto;
+  width: 900px;
+  height: 500px;
+  padding: 10px 10px;
 }
 
 form {
@@ -45,18 +67,12 @@ form {
   margin: 0 800 0px;
 }
 
-/* .main-body {
-  min-height: 100vh;
-} */
-
 .hidden {
   visibility: hidden;
 }
 
 .startQuiz {
-  justify-content: center;
-  justify-items: center;
-  justify-content: space-between;
+  margin-left: auto;
 }
 
 .time {
@@ -66,15 +82,13 @@ form {
 }
 
 button {
-  align-self: center;
-  font-size: 1.3rem;
+  margin-left: 125px;
+  font-size: 2rem;
   text-decoration: none;
   width: fit-content;
-  padding: 10px 20px;
-  display:list-item;
-  margin: 5px 300px;
+  padding: 10px 10px;
   border-radius: var(--border-radius);
-  color: var(--primary);
+  color: #ffff;
   border: none;
   outline: none;
   background-color: var(--light-dark);
@@ -88,16 +102,6 @@ button {
   transform: translate(0, 0);
   box-shadow: 2px 2px var(--dark);
 }
-
-.btn-inline {
-  display: inline;
-}
-
-.startbtn {
-  margin: 0 0 0 100px;
-}
-
-
 
 /* quiz card */
 
@@ -122,7 +126,7 @@ input {
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin: 0 0 0 0;
+  height: 0vh;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
 }

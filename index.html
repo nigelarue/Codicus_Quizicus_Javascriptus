@@ -16,35 +16,42 @@
 
  <div id="main-body">
      <!-- quiz start button -->
- <div id="startQuiz">
-    <h5 id="startbtn-title">Test your knowledge below:</h5>
-    <button id="startbtn">Start!</button>
- </div>
-  <!-- timer -->
-  <h2 id="timerTitle" class="hidden">Time Left: </h2>
-  <h1 id="timer" class="hidden"> </h1>
-  <div id="question-card" class="hidden">
-     <div id="questions">
-         <h3 id="question-header"></h3>
-         <div id="choices" class="choices"></div>
-     </div>
-  </div>
-  <!-- quiz end card & initials input form -->
-  <div id="gameOverCard" class="hidden">
-     <h3 id="gameover-header">Game Over!!!</h3>
-     <form class="formScores">
-         <label><h5>Enter your initials:</h5></label>
-         <input id="initials" type="text" maxlength="3"/>
-         <button id="submitBtn">Submit</button>
-     </form>
-  </div>
- 
-  <div id="scoreCard" class="hidden">
-     <h5>Previous Quiz Scores:</h5>
-     <ol id="scoreStoreList"></ol>
- 
-  </div>
- 
+   <div class="cardContainer">
+      <div id="startQuiz">
+         <h5 id="startbtn-title">Test your knowledge below:</h5>
+         <button id="startbtn">Start!</button>
+      </div>
+   </div>
+   <!-- timer -->
+   <div class="cardContainerQuestions">
+      <h2 id="timerTitle" class="hidden">Time Left: </h2>
+      <h1 id="timer" class="hidden"> </h1>
+      <div id="question-card" class="hidden">
+         <div id="questions">
+               <h2 id="question-header"></h2>
+               <div id="choices" class="choices"></div>
+         </div>
+      </div>
+   </div>
+   <!-- quiz end card & initials input form -->
+   <div class="cardContainer">
+      <div id="gameOverCard" class="hidden">
+         <h3 id="gameover-header">Game Over!!!</h3>
+         <form class="formScores">
+               <label><h5>Enter your initials:</h5></label>
+               <input id="initials" type="text" maxlength="3"/>
+               <button id="submitBtn">Submit</button>
+         </form>
+      </div>
+   </div>
+   
+   <div class="cardContainer">
+      <div id="scoreCard" class="hidden">
+         <h5>Previous Quiz Scores:</h5>
+         <ol id="scoreStoreList"></ol>
+
+      </div>
+   </div>
  </div>
 
  <script src="./assets/quiz.js"></script>

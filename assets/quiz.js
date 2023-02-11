@@ -10,10 +10,8 @@ var currentQuestion = 0;
 
 // start button click event
 startBtnEl.addEventListener("click", function () {
-
   // start timer
   intervalId = setInterval(function () {
-
     timeLeft--;
     timer.innerHTML = timeLeft;
     // ends quiz if timer reaches 0
@@ -36,7 +34,6 @@ startBtnEl.addEventListener("click", function () {
 var choicesEl = document.querySelector("#choices");
 
 function displayQuestion() {
-  
   questionCard.removeAttribute("class", "hidden");
   timer.removeAttribute("class");
   timerTitle.removeAttribute("class");
@@ -47,17 +44,13 @@ function displayQuestion() {
   document.getElementById("choices").innerHTML = "";
 
   for (let i = 0; i < choices.length; i++) {
-
     let choice = choices[i];
     let btn = document.createElement("button");
     btn.innerHTML = choice;
     btn.addEventListener("click", function () {
-
       if (choice === question.answer) {
-
         currentQuestion++;
         if (currentQuestion === questions.length) {
-          
           displayGameOver();
         } else {
           displayQuestion();
@@ -89,35 +82,18 @@ const questions = [
     answer: "Document Object Model",
   },
   {
-    text: 'A JavaScript ____ is a property containing a function definition?',
-    choices: [
-      "method",
-      "dictionary",
-      "string",
-      "trait",
-      "moment",
-    ],
-    answer:
-      "method",
+    text: "A JavaScript ____ is a property containing a function definition?",
+    choices: ["method", "dictionary", "string", "trait", "moment"],
+    answer: "method",
   },
   {
-    text: 'What is a data type that can take in a different types of data values in JavaScript?',
-    choices: [
-      "data",
-      "object",
-      "property",
-      "prop",
-    ],
+    text: "What is a data type that can take in a different types of data values in JavaScript?",
+    choices: ["data", "object", "property", "prop"],
     answer: "object",
   },
   {
-    text: 'What is a property describing the number of arguments in a function ___ in JavaScript?',
-    choices: [
-      "trait",
-      "prop",
-      "array",
-      "arity",
-    ],
+    text: "What is a property describing the number of arguments in a function ___ in JavaScript?",
+    choices: ["trait", "prop", "array", "arity"],
     answer: "arity",
   },
   {
@@ -167,18 +143,13 @@ const questions = [
   },
 ];
 
-// displays the gameover card and the 
+// displays the gameover card and the
 var scoreCardEl = document.getElementById("scoreCard");
 var formScores = document.getElementById("submitBtn");
 var scoreStoreList = document.getElementById("scoreStoreList");
 var scoreList = document.getElementById("scoreList");
-var storedData = localStorage.getItem(saveInitials);
-var saveInitials = initials.value;
-var userScore = [timeLeft];
 var storedScores;
 var saveScore;
-var saveInitials;
-
 
 function displayGameOver() {
   userScore = timeLeft;
@@ -197,43 +168,52 @@ function displayGameOver() {
     timerTitle.classList.add("hidden");
   }
   scoreCardEl.classList.remove("hidden");
-  formScores.addEventListener("submit", addScores);
-  displayScoreCardEl();
+  displayData();
+  addScores();
 }
 
-// storage & submit click event
+function storeData() {
+  var saveInitials = document.getElementById("initials").value;
+  var userScore = document.getElementById("score").value;
 
-function addScores(event) {
-  event.preventDefault();
-  
-  document.getElementById("scoreStoreList").innerHTML = storedData;
-  if(localStorage.hasOwnProperty("saveScores")){
-    saveScores = JSON.parse(localStorage.getItem("saveScores"));
-    saveScores.push({
+  if (localStorage.hasOwnProperty("saveScores")) {
+    saveScore = JSON.parse(localStorage.getItem("saveScores"));
+    saveScore.push({
       initials: saveInitials,
-      score: userScore
+      score: userScore,
     });
   } else {
-
-    saveScores = [{
-      initials: saveInitials,
-      score: userScore
-    }];
+    saveScore = [
+      {
+        initials: saveInitials,
+        score: userScore,
+      },
+    ];
   }
-  console.log(saveScores);
-  localStorage.setItem("saveScores", JSON.stringify(saveScores));
-  formScores.addEventListener("click", saveScores);
-  displayScoreCardEl(); 
+
+  localStorage.setItem("saveScores", JSON.stringify(saveScore));
+  localStorage.setItem("userScore", document.getElementById("initials").value);
 }
 
-function displayScoreCardEl() {
-  storedScores = JSON.parse(localStorage.getItem("saveScores"));
-  for (var i = 0; i < storedScores.length; i++) {
-    var newScore = document.createElement("li");
-    newScore.textContent = storedScores[i].initials + " " + storedScores[i].score;
-    scoreStoreList.appendChild(newScore);
+function displayData() {
+  console.log(displayData);
+  document.getElementById("scoreStoreList").innerHTML = storedData;
+  if (localStorage.getItem("saveScores")) {
+    storedScores = JSON.parse(localStorage.getItem("saveScores"));
+    for (var i = 0; i < storedScores.length; i++) {
+      var newScore = document.createElement("li");
+      newScore.textContent =
+        storedScores[i].initials + " " + storedScores[i].score;
+      scoreStoreList.appendChild(newScore);
+    }
   }
 }
 
-localStorage.setItem(userScore, saveInitials);
+function addScores(event) {
+  storeData();
+  event.preventDefault();
+  console.log(saveScore);
+  displayData();
+}
 
+document.getElementById("submitBtn").addEventListener("click", addScores);
