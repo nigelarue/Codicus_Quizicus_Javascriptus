@@ -195,9 +195,10 @@ function storeData() {
   localStorage.setItem("userScore", document.getElementById("initials").value);
 }
 
+
 function displayData() {
   console.log(displayData);
-  document.getElementById("scoreStoreList").innerHTML = storedData;
+  document.getElementById("scoreStoreList").innerHTML = storeData;
   if (localStorage.getItem("saveScores")) {
     storedScores = JSON.parse(localStorage.getItem("saveScores"));
     for (var i = 0; i < storedScores.length; i++) {
