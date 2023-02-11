@@ -153,7 +153,7 @@ var saveScore;
 
 function displayGameOver() {
   userScore = timeLeft;
-  clearInterval(intervalId);
+  
   var questionCard = document.getElementById("question-card");
   var gameOverCard = document.getElementById("gameOverCard");
 
