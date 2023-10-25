@@ -1,7 +1,7 @@
 <h1 align="center">Codicus Quizicus Javascriptus</h1>
 
 # Project Description
-A simple HTML Javascript quiz to asess users basic vocabularly regarding JavaScript.
+A simple HTML JavaScript quiz to assess users' basic vocabulary regarding JavaScript.
 
 GitHub [link](https://github.com/nigelarue/04challenge_javascript_quiz).  
 
@@ -39,11 +39,15 @@ To select your answer, click on the answer button you want to choose. If it's th
 
 Step 4: Finish the Quize
 
-After answering all the questions, you will see a displayed "Game Over" card. Click on the "Submit" button to submit your initials and save the time you were able to finish the quiz with.
+After answering all the questions, you will see a displayed "Game Over" card. Click on the "submit" button to submit your initials and save the time you were able to finish the quiz with.
+
+## Known Bugs
+
+Some questions require a double-click, and local storage does not appear to save and display user score and data.
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
+Pull requests are welcome. For major changes, please submit a request first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
